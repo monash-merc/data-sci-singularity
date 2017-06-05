@@ -292,7 +292,7 @@ EOF
 # Add startup script #
 ######################
 
-cat << EOF > /singularity
+cat << 'EOF' > /singularity
 TMPDIR=$(mktemp -d)
 
 function finish {
