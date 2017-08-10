@@ -219,9 +219,8 @@ function finish {
 }
 trap finish EXIT
 
-export LD_LIBRARY_PATH="/host_libs:/usr/local/cuda/lib64:$TMPDIR"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$TMPDIR"
 export PYTHONPATH=/usr/local
-ln -s /all_host_libs/libnvidia-fatbinaryloader.so.* "$TMPDIR/"
 
 cd /
 jupyter notebook --ip=0.0.0.0
