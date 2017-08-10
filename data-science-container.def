@@ -78,8 +78,8 @@ apt install -y \
       openmpi-doc
 
 # Update pip
-python2 -m pip install -U pip
-python3 -m pip install -U pip
+pip2 install -U pip
+pip3 install -U pip
 
 pip2 install wheel
 pip3 install wheel
@@ -142,7 +142,7 @@ EOF
 ##################
 # Install Caffe1 #
 ##################
-apt-get install -y --no-install-recommends \
+apt install -y --no-install-recommends \
       caffe-nv-tools \
       caffe-nv \
       python-caffe-nv
@@ -151,7 +151,7 @@ apt-get install -y --no-install-recommends \
 # Install Caffe2 #
 ##################
 # Required deps (note, python2 support only at present)
-apt-get install -y --no-install-recommends \
+apt install -y --no-install-recommends \
       build-essential \
       cmake \
       git \
@@ -162,7 +162,7 @@ apt-get install -y --no-install-recommends \
 pip install protobuf
 
 # Optional deps
-apt-get install -y --no-install-recommends \
+apt install -y --no-install-recommends \
       libgtest-dev \
       libiomp-dev \
       libleveldb-dev \
