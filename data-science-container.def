@@ -215,7 +215,7 @@ mkdir -p /usr/local/openmpi
 ######################################
 
 cat << 'EOF' >> /.singularity.d/env/90-environment.sh
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:$TMPDIR"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib/:/usr/local/cuda/lib64:$TMPDIR"
 export PYTHONPATH=/usr/local
 EOF
 
