@@ -198,6 +198,69 @@ pip3 install Theano
 pip2 install keras
 pip3 install keras
 
+##################
+# Install OpenCV #
+##################
+apt install -y --no-install-recommends \
+               qt5-default \
+               libvtk6-dev \
+               zlib1g-dev \
+               libjpeg-dev \
+               libwebp-dev \
+               libpng-dev \
+               libtiff5-dev \
+               libjasper-dev \
+               libopenexr-dev \
+               libgdal-dev \
+               libdc1394-22-dev \
+               libavcodec-dev \
+               libavformat-dev \
+               libswscale-dev \
+               libtheora-dev \
+               libvorbis-dev \
+               libxvidcore-dev \
+               libx264-dev \
+               yasm \
+               libopencore-amrnb-dev \
+               libopencore-amrwb-dev \
+               libv4l-dev \
+               libxine2-dev \
+               libtbb-dev \
+               libeigen3-dev \
+               python-tk \
+               python3-tk \
+               ant \
+               default-jdk \
+               wget
+
+wget https://github.com/opencv/opencv/archive/3.2.0.zip
+unzip 3.3.0.zip
+rm 3.3.0.zip
+mv opencv-3.3.0/ OpenCV
+git clone https://github.com/opencv/opencv_contrib.git
+cd opencv_contrib
+git checkout 3.3.0
+cd ../OpenCV/
+mkdir build
+cd build
+cmake -DCMAKE_LIBRARY_PATH=/usr/local/cuda/lib64/stubs \
+      -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+      -DWITH_QT=ON \
+      -DWITH_OPENGL=ON \
+      -DFORCE_VTK=ON \
+      -DWITH_TBB=ON \
+      -DWITH_GDAL=ON \
+      -DWITH_XINE=ON \
+      -DBUILD_EXAMPLES=ON \
+      -DENABLE_PRECOMPILED_HEADERS=OFF ..
+make -j4
+make install
+ldconfig
+
+cd ../../
+rm -R OpenCV
+rm -R opencv_contrib
+
 ######################
 # Clean up apt cache #
 ######################
