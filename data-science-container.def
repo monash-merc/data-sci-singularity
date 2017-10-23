@@ -6,6 +6,10 @@ Include: apt
     apt install -y software-properties-common
     apt-add-repository -y universe
 
+# Speed up the build
+export NCPUS=`grep -c ^processor /proc/cpuinfo`
+export MAKEFLAGS="-j $NCPUS"
+
 ##########################
 # Install CUDA and CUDNN #
 ##########################
